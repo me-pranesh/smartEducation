@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../Web Lab"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "smartEducation"
+	}
+}

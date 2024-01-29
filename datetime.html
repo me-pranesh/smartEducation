@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date and Time</title>
+    <style>
+        #datetime-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Current Date and Time</h1>
+    </header>
+
+    <div id="datetime-container">
+        <!-- This div will be used to display the date and time -->
+    </div>
+
+    <script>
+        // Function to update the date and time
+        function updateDateTime() {
+            var dateTimeContainer = document.getElementById("datetime-container");
+
+            // Get the current date and time
+            var currentDateTime = new Date();
+
+            // Format the date and time
+            var formattedDateTime = currentDateTime.toLocaleString();
+
+            // Update the content of the container
+            dateTimeContainer.innerHTML = "<p>" + formattedDateTime + "</p>";
+        }
+
+        // Call the function initially and update every second (1000 milliseconds)
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+
+</html>

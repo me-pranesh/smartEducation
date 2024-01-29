@@ -10,7 +10,7 @@
 <body>
   <div class="signin-container">
     <h2>SignIn</h2>
-    <form action="#" method="post">
+    <form onsubmit="return validateForm()">
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
@@ -24,5 +24,22 @@
       </div>
     </form>
   </div>
+  <script>
+    function validateForm() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Invalid email format.");
+            return false;
+        }
+        if (password.length < 5) {
+            alert("Password should be at least 5 characters long.");
+            return false;
+        }
+        window.location.href = 'datetime.html';
+        return false;
+    }
+  </script>
 </body>
 </html>

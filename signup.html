@@ -9,7 +9,7 @@
 <body>
   <div class="signup-container">
     <h2>SignUp</h2>
-    <form action="#" method="post">
+    <form onsubmit="return validateForm()">
       <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -27,5 +27,28 @@
       </div>
     </form>
   </div>
+  <script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var usernameRegex = /^[a-zA-Z]+$/;
+        if (!usernameRegex.test(username)) {
+            alert("Username should contain only text.");
+            return false;
+        }
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Invalid email format.");
+            return false;
+        }
+        if (password.length < 5) {
+            alert("Password should be at least 5 characters long.");
+            return false;
+        }
+        window.location.href = 'datetime.html';
+        return false;
+    }
+  </script>
 </body>
 </html>

@@ -3,6 +3,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    background-image: url('back_img.avif'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 header {
@@ -25,12 +29,20 @@ nav a {
     padding: 5px 10px;
 }
 
+nav a:hover {
+    color: #e99416; /* Change color on hover */
+}
+
+nav a:active {
+    color: #e7e1f1; /* Change color on click */
+}
+
 .study-material {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 20px;
-}
+} 
 
 .study-material-item {
     width: 30%;
