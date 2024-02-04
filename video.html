@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        #content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+
+        #exercise-heading {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif; /* Change to your preferred font family */
+            color: #00FF00; /* Green color */
+        }
+
+        #exercise-info {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        #get-started-btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #get-started-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <audio controls autoplay>
+        <source src="edu_audio.mp3" type="audio/mp3">
+    </audio>
+    <video autoplay loop muted>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+    <div id="content">
+        <h1 id="exercise-heading">EDUCATION</h1>
+        <p id="exercise-info">
+            Our aim is to bridge educational gaps in rural areas by delivering high-quality, accessible content that empowers students with knowledge and skills. Through online platforms, we aspire to cultivate a culture of learning, ensuring that every individual in rural communities has the opportunity to thrive academically.
+        </p>
+        <a href="imagemap.html" id="get-started-btn">Get Started</a>
+    </div>
+</body>
+</html>
