@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../ManoWeb"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ManoWeb"
+	}
+}
