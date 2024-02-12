@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mouse Events</title>
+  <style>
+    #dragElement {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      text-align: center;
+      cursor: grab;
+    }
+    #dropZone {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #ccc;
+      margin: 20px;
+    }
+    div{
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="top">
+    <h3>Mouse Event</h3>
+    <button id="targetElement">Click me!</button>
+    <p id="p"></p>
+  </div>
+  <div>
+    <h3>Drag Event</h3>
+    <div id="dragElement" draggable="true">Draggable Object</div>
+    <div id="dropZone">Drop here!</div>
+  </div>
+  <div>
+    <h3>Key Event</h3>
+    <textarea name="text" id="textarea" cols="30" rows="3"></textarea>
+    <textarea name="" id="log" cols="30" rows="3"></textarea>
+  </div>
+  <div>
+    <h3>Clipboard Events</h3>
+    <textarea name="text1" id="text1" cols="30" rows="4"></textarea>
+    <textarea name="" id="log1" cols="30" rows="4"></textarea>
+  </div>
+  <div>
+    <h3>Progress Events</h3>
+    <video src="video.mp4" id="video" height="50%" width="50%" controls></video>
+  </div>
+  <script>
+    const dragElement = document.getElementById("dragElement");
+    const dropZone = document.getElementById("dropZone");
+    dragElement.addEventListener("drag", (event) => {
+      dragElement.style.backgroundColor = "yellow";
+      event.preventDefault();
+    });
+    dragElement.addEventListener("dragstart", (event) => {
+      event.dataTransfer.setData("text/plain", dragElement.innerText);
+    });
+    dropZone.addEventListener("dragover", (event) => {
+      event.preventDefault();
+    });
+    dropZone.addEventListener("drop", (event) => {
+      event.preventDefault();
+      dragElement.style.backgroundColor = "white";
+      dropZone.style.backgroundColor = "red";
+      const draggedData = event.dataTransfer.getData("text/plain");
+      dropZone.innerText = draggedData;
+    });
+
+    const targetElement = document.getElementById("targetElement");
+    const clickElement = document.getElementById("p");
+    targetElement.addEventListener("click", (e) => {
+      clickElement.textContent += "clicked\n";
+    });
+    targetElement.addEventListener("mousedown", () => {
+      clickElement.textContent += "Down & ";
+    });
+    targetElement.addEventListener("mouseup", () => {
+      clickElement.textContent += "Up ";
+    });
+
+    const element = document.getElementById("textarea");
+    const input = document.getElementById("log");
+    element.addEventListener("keyup", (e) => {
+      e.target.style.backgroundColor = "white";
+      input.textContent += "up\n";
+    });
+    element.addEventListener("keypress", (e) => {
+      e.key === "y" && (e.target.style.backgroundColor = "yellow");
+      input.textContent += e.target.style.backgroundColor + "\n";
+    });
+    element.addEventListener("keydown", (e) => {
+      e.key != "y" && (e.target.style.backgroundColor = "red");
+      input.textContent += "down\n";
+    });
+
+    const element1 = document.getElementById("text1");
+    const input1 = document.getElementById("log1");
+    element1.addEventListener("paste", (e) => {
+      input1.textContent += "\nText - Pasted";
+    });
+    element1.addEventListener("cut", (e) => {
+      input1.textContent += "\nText - Cut";
+    });
+    element1.addEventListener("copy", (e) => {
+      input1.textContent = "\nText - Copied";
+    });
+
+    window.addEventListener("load", (e) => {
+      alert("Window loaded");
+    });
+    const video = document.getElementById("video");
+    video.addEventListener("loadstart", () => {
+      alert("Video Loading...");
+    });
+  </script>
+</body>
+</html>
